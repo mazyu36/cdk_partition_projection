@@ -1,14 +1,18 @@
-# Welcome to your CDK TypeScript project
+# Amazon Athena Partition Projection Project
 
-This is a blank project for CDK development with TypeScript.
+This project is a CDK project that implements Amazon Athena Partition Projection configuration for various logs.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+![](docs/architecture.drawio.svg)
 
-## Useful commands
+| No | Services                | Log Types | Glue Database |
+|----|------------------------|------------|---------------|
+| 1  | Application Load Balancer | Access Logs |application_logs_database|
+| 2  | AWS WAF                  | Web Acl Traffic Logs|application_logs_database|
+| 3  | Amazon VPC               | VPC Flow Logs|network_logs_database|
+| 4  | Amazon Route53           | Query Logs|network_logs_database|
+| 5  | AWS CloudTrail           |CloudTrail Logs|security_logs_database|
+| 6  | AWS Config               |History, Snapshot|security_logs_database|
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+
+
+
